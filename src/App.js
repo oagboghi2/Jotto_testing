@@ -3,6 +3,7 @@ import './App.css';
 
 import GuessWords from './comps/guessWords';
 import Congrats from './comps/congrats'
+import Input from './input.js'
 
 class App extends Component {
   render(){
@@ -14,6 +15,7 @@ class App extends Component {
           {guessedWord: 'train', letterMatchCount: 3},
           {guessedWord: 'bat', letterMatchCount: 3}
           ]}/>
+          <Input />
       </div>
       );
   }

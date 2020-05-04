@@ -33,24 +33,34 @@ describe('render', () => {
         });
         test('render input box', () => {
             const inputBox = findByTestAttr(wrapper, "input-box");
+            console.log(inputBox.length)
             expect(inputBox.length).toBe(1);
         });
         test('renders Submit button', () => {
-            const submitBpx = findByTestAttr(wrapper, "submit-button");
-            expect(submitBpx.length).toBe(1);
+            const submitBox = findByTestAttr(wrapper, "submit-button");
+            expect(submitBox.length).toBe(1);
         })
     })
     describe('word has been guessed', () => {
+        let wrapper;
+        beforeEach(() => {
+            const InitialState = { success : true }
+            wrapper = setup(InitialState);
+        });
         test('render component with error', () => {
-
+            const component = findByTestAttr(wrapper, 'component-input');
+            expect(component.length).toBe(1)
         });
-        test('render does not input box', () => {
-
-        });
-        test('does not renders submit button', () => {
-            
-        })
-    })
+        // test('does not render input box', () => {
+        //     const inputBox = findByTestAttr(wrapper, "input-box");
+        //     console.log(inputBox.length)
+        //     expect(inputBox.length).toBe(0);
+        // });
+        // test('does not renders submit button', () => {
+        //     const submitBox = findByTestAttr(wrapper, "submit-button");
+        //     expect(submitBox.length).toBe(0);
+        // });
+    });
 });
 describe('update state', () => {
 
