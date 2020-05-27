@@ -9,13 +9,23 @@ import Input from './input.js'
 import { getSecretWord } from './actionCreators/index.js';
 
 
-class App extends Component {
+export class UnconnectedApp extends Component {
+
+  /**
+   * @method componentDidMount
+   * 
+   */
+  componentDidMount = () => {
+    // get the secretWord
+    this.props.getSecretWord();
+  }
+
   render(){
     return (
       <div className="container">
         <h1>Jotto</h1>
         <Congrats success={this.props.success} />
-        <GuessWords guessedWords={[this.props.guessedWords}/>
+        <GuessWords guessedWords={this.props.guessedWords}/>
           <Input />
       </div>
       );
@@ -28,4 +38,4 @@ const mapStateToProps = (state) => {
   return { success, guessedWords, secretWord}
 }
 
-export default connect(mapStateToProps, { getSecretWord })(App);
+export default connect(mapStateToProps, { getSecretWord })(UnconnectedApp);
